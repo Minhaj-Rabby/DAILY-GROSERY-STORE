@@ -93,7 +93,7 @@ const Navbar = () => {
 								alt=""
 								loading="lazy"
 							/>{" "}
-							<span className="font-bold">Daily Grosery Mart</span>
+							<span className="font-bold">Daily Grosery Store</span>
 						</NavLink>
 
 						{/* <!-- Left links --> */}
@@ -112,14 +112,14 @@ const Navbar = () => {
 							</li>
 							<li className="nav-item p-2">
 								<NavLink
-									to={"/inventory"}
+									to={"/manageitems"}
 									className={(navInfo) =>
 										navInfo.isActive
 											? `active-l nav-link`
 											: `a nav-link`
 									}
 								>
-									Inventory
+									Manage Items
 								</NavLink>
 							</li>
 							<li className="nav-item p-2">
@@ -148,12 +148,12 @@ const Navbar = () => {
 							</li>
 						</ul>
 					</div>
-					{!user ? (
+					{!user?.emailVerified ? (
 						<button
 							onClick={handleLoginBtn}
 							className="bg-blue-700 text-white px-4 py-1 rounded hover:text-amber-500"
 						>
-							SignIn
+							Login
 						</button>
 					) : (
 						<div className="flex justify-center">
@@ -162,7 +162,7 @@ const Navbar = () => {
 									<button
 										className="
 										dropdown-toggle
-										px-4 py-1.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out
+										px-4 py-1.5 bg-transparent text-gray-500 font-medium text-xs leading-tight uppercase rounded  hover:text-gray-700  focus:text-gray-700 focus:outline-none focus:ring-0 active:text-gray-700  transition duration-150 ease-in-out
 										flex
 										items-center
 										whitespace-nowrap
@@ -254,7 +254,7 @@ const Navbar = () => {
 										</li>
 										<li>
 											<Link
-												to={"/inventory"}
+												to={"/manageitems"}
 												className="
 												dropdown-item
 												text-sm
@@ -290,7 +290,7 @@ const Navbar = () => {
 												cursor-pointer
          									"
 											>
-												SignOut
+												Logout
 											</span>
 										</li>
 									</ul>

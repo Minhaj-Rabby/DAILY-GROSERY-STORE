@@ -1,0 +1,10 @@
+.formInput span {
+	display: none;
+}
+
+.formInput input:invalid[focused="true"] {
+	border: 2px solid red;
+}
+.formInput input:invalid[focused="true"] ~ span {
+	display: block;
+}

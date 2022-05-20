@@ -4,7 +4,7 @@ const Spinner = () => {
 	return (
 		<div
 			className="flex justify-center items-center"
-			style={{ minHeight: "80vh" }}
+			style={{ minHeight: "35vh" }}
 		>
 			<div
 				className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-blue-600"

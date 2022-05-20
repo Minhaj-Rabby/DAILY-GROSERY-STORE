@@ -19,27 +19,31 @@ const Summery = () => {
 	const [data, setData] = useState([]);
 	const [color, setColor] = useState([]);
 	const [sell, setSell] = useState([]);
-	useEffect(async () => {
-		
-		await axios
-			.get("https://intense-wave-00513.herokuapp.com/products")
-			.then((data) => {
-				setProducts(data.data);
-				const datas = data.data.map((item) => {
-					return { name: item.name, value: parseInt(item.quantity) };
+	useEffect( () => {
+		const fn = async () => {
+			await axios
+				.get("https://lit-hamlet-04037.herokuapp.com/products")
+				.then((data) => {
+					setProducts(data.data);
+					const datas = data.data.map((item) => {
+						return { name: item.name, value: parseInt(item.quantity) };
+					});
+					const colors = data.data.map(() => RandomColor());
+					setData(datas);
+					setColor(colors);
 				});
-				const colors = data.data.map(() => RandomColor());
-				setData(datas);
-				setColor(colors);
-			});
+		}
+		fn()
 	}, []);
-	
-	useEffect(async () => {
-		await axios
-			.get("https://intense-wave-00513.herokuapp.com/sellProducts")
-			.then((data) => {
-				setSell(data.data);
-			});
+	useEffect( () => {
+		const fn = async () => {
+			await axios
+				.get("https://lit-hamlet-04037.herokuapp.com/soldProducts")
+				.then((data) => {
+					setSell(data.data);
+				});
+		}
+		fn()
 	}, []);
 	//extra
 

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const Item = (props) => {
 	const { _id, img, name, price, supplierName, quantity } = props.item;
-	//handle Update stock
 	const navigate = useNavigate();
 	const handleUpdateStock = () => {
 		const url = `/inventory/${_id}`;
@@ -12,7 +11,12 @@ const Item = (props) => {
 	return (
 		<div className="flex justify-center ">
 			<div className="rounded shadow-lg bg-gray-50 relative">
-				<img className="rounded-t-lg" src={img} alt="product" />
+				<img
+					className="rounded-t-lg"
+					src={img}
+					alt="product"
+					style={{ width: "300px" }}
+				/>
 
 				<div className="p-6">
 					<h5 className="text-gray-900 text-xl  mb-2 font-bold">
@@ -31,8 +35,13 @@ const Item = (props) => {
 						Update Stock
 					</button>
 				</div>
-				<p className="flex justify-center items-center w-14 h-8 absolute bg-yellow-50 rounded-sm text-black top-3 left-4">
-					${price}
+				<p className="flex justify-center items-center w-14 h-8 absolute bg-yellow-50 rounded-sm text-black top-3 left-4 font-bold">
+					<span>{price}</span>
+					<img
+						className="w-3 h-3"
+						src="https://i.ibb.co/zZtBhgs/taka1.png"
+						alt=""
+					/>
 				</p>
 			</div>
 		</div>

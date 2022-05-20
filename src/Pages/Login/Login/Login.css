@@ -1,0 +1,7 @@
+.form-container {
+	width: 500px;
+	background: #ffffff;
+	border: 1px solid #95a0a7;
+	box-sizing: border-box;
+	border-radius: 8px;
+}

@@ -1,9 +1,11 @@
 import React from "react";
+import Title from "../Common/Title/Title";
 
 const Blogs = () => {
 	return (
 		<div className="container mx-auto my-12" style={{ minHeight: "75vh" }}>
-			<h2 className="text-3xl text-center my-10">Question answer</h2>
+			<Title title={"Blogs"}></Title>
+			<h2 className="text-3xl text-center mb-10">Question answer</h2>
 			<div className="accordion " id="accordionExample">
 				<div className="accordion-item bg-white border border-gray-200">
 					<h2 className="accordion-header mb-0" id="headingOne">
