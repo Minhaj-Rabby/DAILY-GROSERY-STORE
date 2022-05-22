@@ -24,7 +24,7 @@ const Myitems = () => {
 			try {
 				await axios
 					.get(
-						`https://lit-hamlet-04037.herokuapp.com/products/${user.email}`,
+						`https://lit-hamlet-04037.herokuapp.com/addedProducts/${user.email}`,
 						{
 							headers: {
 								authorization: `Bearer ${localStorage.getItem(
@@ -53,7 +53,7 @@ const Myitems = () => {
 			}
 		};
 		getItems();
-	}, [user?.email]);
+	}, [user?.email,location]);
 
 	//delete opration
 	const handleDeleteOparation = (id) => {
