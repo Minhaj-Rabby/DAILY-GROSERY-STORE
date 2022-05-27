@@ -76,7 +76,7 @@ const Summery = () => {
 	return (
 		<>
 			<div className="container mx-auto py-10">
-				<h2 className="text-left pb-8 font-bold uppercase text-lg sm:text-2xl pl-12">
+				<h2 className="text-center pb-8 font-bold uppercase text-lg sm:text-2xl pl-12">
 					Product Summary
 				</h2>
 				<div className="flex flex-col">
@@ -134,8 +134,8 @@ const Summery = () => {
 				</div>
 			</div>
 			<div className="container py-12 mx-auto">
-				<h2 className="text-left pb-8 font-bold uppercase text-lg sm:text-2xl pl-12">
-					Numerical Calulation
+				<h2 className="text-center pb-8 font-bold uppercase text-lg sm:text-2xl pl-12">
+					Overall Summery
 				</h2>
 				<div className="grid gap-4 items-end justify-center  md:grid-cols-3">
 					<div className="bg-indigo-700 p-12 flex flex-col justify-center items-center rounded text-white">
