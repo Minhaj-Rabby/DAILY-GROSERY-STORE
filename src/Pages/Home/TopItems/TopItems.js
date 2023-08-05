@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import Spinner from "../../SmallComponents/Spinner/Spinner";
 import Item from "../Item/Item";
 import Summery from "../Summery/Summery";
+import { serverUrl } from "../../../Variable/ServerUrl";
 
 const TopItems = () => {
 	const [items, setItems] = useState([]);
 	useEffect(() => {
 		axios
-			.get("https://lit-hamlet-04037.herokuapp.com/products?size=6")
+			.get(`${serverUrl}/products?size=6`)
 			.then((data) => setItems(data.data));
 	}, []);
 

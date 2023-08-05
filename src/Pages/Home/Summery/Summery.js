@@ -13,6 +13,7 @@ import {
 	YAxis,
 } from "recharts";
 import RandomColor from "../../../Function/RandomColor";
+import { serverUrl } from "../../../Variable/ServerUrl";
 
 const Summery = () => {
 	const [products, setProducts] = useState([]);
@@ -22,7 +23,7 @@ const Summery = () => {
 	useEffect( () => {
 		const fn = async () => {
 			await axios
-				.get("https://lit-hamlet-04037.herokuapp.com/products")
+				.get(`${serverUrl}/products`)
 				.then((data) => {
 					setProducts(data.data);
 					const datas = data.data.map((item) => {
@@ -38,7 +39,7 @@ const Summery = () => {
 	useEffect( () => {
 		const fn = async () => {
 			await axios
-				.get("https://lit-hamlet-04037.herokuapp.com/soldProducts")
+				.get(`${serverUrl}/soldProducts`)
 				.then((data) => {
 					setSell(data.data);
 				});

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { serverUrl } from "../Variable/ServerUrl";
 
 const useToken = (user) => {
 	const [token, setToken] = useState("");
@@ -10,7 +11,7 @@ const useToken = (user) => {
 			const email = user?.user?.email;
 			if (email) {
 				const { data } = await axios.post(
-					"https://lit-hamlet-04037.herokuapp.com/login",
+					`${serverUrl}/login`,
 					{
 						email: email,
 					}

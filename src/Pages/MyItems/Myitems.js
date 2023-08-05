@@ -8,6 +8,7 @@ import Title from "../Common/Title/Title";
 import ConfirmModal from "../SmallComponents/ConfirmModal/ConfirmModal";
 import Spinner from "../SmallComponents/Spinner/Spinner";
 import MyItemRow from "./MyItemRow";
+import { serverUrl } from "../../Variable/ServerUrl";
 
 const Myitems = () => {
 	const [items, setItems] = useState([]);
@@ -24,7 +25,7 @@ const Myitems = () => {
 			try {
 				await axios
 					.get(
-						`https://lit-hamlet-04037.herokuapp.com/addedProducts/${user.email}`,
+						`${serverUrl}/addedProducts/${user.email}`,
 						{
 							headers: {
 								authorization: `Bearer ${localStorage.getItem(
@@ -64,7 +65,7 @@ const Myitems = () => {
 		const de = async () => {
 			if (confirm) {
 				const result = await axios.delete(
-					`https://lit-hamlet-04037.herokuapp.com/products/${id}`
+					`${serverUrl}/products/${id}`
 				);
 				if (result?.data.deletedCount) {
 					const restData = items.filter((item) => item._id !== id);

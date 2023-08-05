@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Title from "../Common/Title/Title";
 import Modal from "../SmallComponents/Modal/Modal";
+import { serverUrl } from "../../Variable/ServerUrl";
 
 const SingleItemInfo = () => {
 	const [item, setItem] = useState([]);
@@ -22,7 +23,7 @@ const SingleItemInfo = () => {
 		update: false,
 	});
 	useEffect(() => {
-		const url = `https://lit-hamlet-04037.herokuapp.com/products/${id}`;
+		const url = `${serverUrl}/products/${id}`;
 		axios.get(url).then((data) => setItem(data.data));
 	}, [id]);
 	useEffect(() => {
@@ -37,7 +38,7 @@ const SingleItemInfo = () => {
 			setNewQ(q);
 
 			const result = await axios.put(
-				`https://lit-hamlet-04037.herokuapp.com/products/${id}`,
+				`${serverUrl}/products/${id}`,
 				{
 					quantity: q,
 				}
@@ -51,7 +52,7 @@ const SingleItemInfo = () => {
 				deliverUser: user.email,
 			};
 			const selResult = await axios.put(
-				"https://lit-hamlet-04037.herokuapp.com/sellProducts",
+				`${serverUrl}/sellProducts`,
 				{
 					...sellItem,
 				}
@@ -64,7 +65,7 @@ const SingleItemInfo = () => {
 				time: new Date().toLocaleTimeString(),
 			};
 			await axios.post(
-				"https://lit-hamlet-04037.herokuapp.com/soldProducts",
+				`${serverUrl}/soldProducts`,
 				{ ...sold }
 			);
 		} else {
@@ -76,7 +77,7 @@ const SingleItemInfo = () => {
 		const q = parseInt(qInput) + newQ;
 		setNewQ(q);
 		const result = await axios.put(
-			`https://lit-hamlet-04037.herokuapp.com/products/${id}`,
+			`${serverUrl}/products/${id}`,
 			{
 				quantity: q,
 			}

@@ -8,6 +8,7 @@ import Title from "../Common/Title/Title";
 import ConfirmModal from "../SmallComponents/ConfirmModal/ConfirmModal";
 import Spinner from "../SmallComponents/Spinner/Spinner";
 import TableRowItem from "./TableRowItem";
+import { serverUrl } from "../../Variable/ServerUrl";
 
 const Inventory = () => {
 	const [items, setItems] = useState([]);
@@ -19,7 +20,7 @@ const Inventory = () => {
 	useEffect(() => {
 		setLoading(true);
 		axios
-			.get("https://lit-hamlet-04037.herokuapp.com/products")
+			.get(`${serverUrl}/products`)
 			.then((data) => {
 				setItems(data.data);
 				setLoading(false);
@@ -35,7 +36,7 @@ const Inventory = () => {
 		const de = async () => {
 			if (confirm) {
 				const result = await axios.delete(
-					`https://lit-hamlet-04037.herokuapp.com/products/${id}`
+					`${serverUrl}/products/${id}`
 				);
 				if (result?.data.deletedCount) {
 					const restData = items.filter((item) => item._id !== id);

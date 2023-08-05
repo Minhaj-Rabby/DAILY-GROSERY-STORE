@@ -4,6 +4,7 @@ import Title from "../Common/Title/Title";
 import ConfirmModal from "../SmallComponents/ConfirmModal/ConfirmModal";
 import Spinner from "../SmallComponents/Spinner/Spinner";
 import SoldSingleItem from "./SoldSingleItem";
+import { serverUrl } from "../../Variable/ServerUrl";
 
 const SoldItems = () => {
 	const [products, setProducts] = useState([]);
@@ -15,7 +16,7 @@ const SoldItems = () => {
 		setLoading(true);
 		const i = async () => {
 			await axios
-				.get("https://lit-hamlet-04037.herokuapp.com/soldProducts")
+				.get(`${serverUrl}/soldProducts`)
 				.then((data) => {
 					setProducts(data.data);
 					setLoading(false);
@@ -32,7 +33,7 @@ const SoldItems = () => {
 		const de = async () => {
 			if (confirm) {
 				const result = await axios.delete(
-					`https://lit-hamlet-04037.herokuapp.com/soldProducts/${id}`
+					`${serverUrl}/soldProducts/${id}`
 				);
 				if (result?.data.deletedCount) {
 					const restData = products.filter((item) => item._id !== id);

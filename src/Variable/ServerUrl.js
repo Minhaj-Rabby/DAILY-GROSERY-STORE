@@ -1,0 +1,1 @@
+export const serverUrl = "https://daily-grocery-store.onrender.com";

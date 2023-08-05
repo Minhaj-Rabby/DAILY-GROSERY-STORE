@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Title from "../Common/Title/Title";
+import { serverUrl } from "../../Variable/ServerUrl";
 
 const AddProduct = () => {
 	const [user] = useAuthState(auth);
@@ -25,7 +26,7 @@ const AddProduct = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const result = await axios.post(
-			"https://lit-hamlet-04037.herokuapp.com/products",
+			`${serverUrl}/products`,
 			{
 				...product,
 			}
